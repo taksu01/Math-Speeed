@@ -1,18 +1,19 @@
 import { useEffect, useState } from 'react';
 
 export const Timer = ({
-  seconds,
+  timeLeft,
+  handleTimer,
   onTimeout,
 }: {
-  seconds: number;
+  timeLeft: number;
+  handleTimer: () => void;
   onTimeout: () => void;
 }) => {
-  const [timeLeft, setTimeLeft] = useState(seconds);
   useEffect(() => {
     if (timeLeft === 0) return onTimeout();
-    const timer = setInterval(() => setTimeLeft(prev => prev - 1), 1000);
+    const timer = setInterval(() => handleTimer(), 1000);
     return () => clearInterval(timer);
-  }, [timeLeft, onTimeout]);
+  }, [timeLeft, onTimeout, handleTimer]);
 
-  return <div className="text-2xl font-bold">{timeLeft}</div>;
+  return <div className="text-xl">{`🕐 ${timeLeft}s`}</div>;
 };

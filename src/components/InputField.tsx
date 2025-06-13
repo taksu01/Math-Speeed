@@ -13,14 +13,16 @@ export const InputField = ({
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        className="border px-4 py-2 text-xl w-full"
-        autoFocus
-        type="text"
-        value={value}
-        onChange={e => setValue(e.target.value)}
-      />
-    </form>
+    <div>
+      <form onSubmit={handleSubmit}>
+        <input
+          className="border px-4 py-4 text-4xl text-center rounded-lg w-64"
+          autoFocus
+          type="text"
+          value={value}
+          onChange={e => setValue(e.target.value)}
+        />
+      </form>
+    </div>
   );
 };
