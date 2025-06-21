@@ -1,9 +1,9 @@
 import { memo } from 'react';
 
 export const QuestionCard = memo(({ question }: { question: string }) => {
-  return (
+  return question ? (
     <div className="text-7xl font-semibold mb-10">
-      {question.replace('*', 'x')}
+      <span className="text-black-500">{question.replace('*', 'x')}</span>
     </div>
-  );
+  ) : null;
 });
